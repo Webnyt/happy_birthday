@@ -1,0 +1,66 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+@keyframes gradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+.bg-bubbles span {
+  position: absolute; width: 20px; height: 20px; background: rgba(255,255,255,0.3);
+  border-radius: 50%; animation: floatUp 10s linear infinite;
+}
+.bg-bubbles span:nth-child(1){left:10%; animation-delay:0s; width:40px;height:40px}
+.bg-bubbles span:nth-child(2){left:20%; animation-delay:2s}
+.bg-bubbles span:nth-child(3){left:35%; animation-delay:4s; width:60px;height:60px}
+.bg-bubbles span:nth-child(4){left:50%; animation-delay:1s}
+.bg-bubbles span:nth-child(5){left:65%; animation-delay:3s; width:30px;height:30px}
+@keyframes floatUp { 0%{transform:translateY(100vh) scale(0)} 100%{transform:translateY(-10vh) scale(1)} }
+
+#start-screen, #main-screen {
+  position: relative; z-index: 2; text-align: center; width: 100%; max-width: 420px; padding: 20px;
+}
+#start-screen h1 { font-weight:300; color:#fff; margin-top:20px; letter-spacing:2px }
+.name { font-family:'Great Vibes', cursive; font-size: 70px; color:#fff; text-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+#start-screen p { color:white; opacity:0.8; margin-top:10px; animation: pulse 1.5s infinite }
+@keyframes pulse {0%,100%{opacity:0.6} 50%{opacity:1}}
+
+.gift-box { width:140px; height:140px; margin: 0 auto; position:relative; cursor:pointer; transition:0.3s }
+.box { position:absolute; bottom:0; width:100%; height:80%; background:#ff6b81; border-radius:10px; }
+.lid { position:absolute; top:0; width:110%; left:-5%; height:40%; background:#ff4757; border-radius:10px; transition:0.8s ease }
+.ribbon { position:absolute; left:50%; transform:translateX(-50%); width:20px; height:100%; background:#fff; }
+.bow { position:absolute; top:-10px; left:50%; transform:translateX(-50%); font-size:40px }
+.gift-box.open .lid { transform: translateY(-80px) rotate(-15deg) }
+
+.hidden { display:none; opacity:0 }
+.cake-wrap { position:relative; margin: 20px auto; width:180px; height:180px }
+.cake { position:absolute; bottom:0; width:100% }
+.cake-base{ height:60px; background:#ff6b81; border-radius:0 0 20px 20px }
+.cake-middle{ height:40px; background:#ff8a9d; margin:0 10px; border-radius:10px }
+.cake-top{ height:40px; background:#fff; margin:0 20px; border-radius:20px 20px 0 0 }
+.candle { position:absolute; top:10px; left:50%; transform:translateX(-50%); width:10px; height:40px; background:#fff; border-radius:10px; cursor:pointer }
+.flame { position:absolute; top:-18px; left:50%; transform:translateX(-50%); width:18px; height:22px; background:radial-gradient(#ffff80, #ff9900); border-radius:50% 50% 50% 50% / 60% 60% 40% 40%; animation: flicker 0.3s infinite; }
+@keyframes flicker {0%,100%{transform:translateX(-50%) scale(1)} 50%{transform:translateX(-50%) scale(1.1)}}
+.candle.off .flame { display:none }
+.candle.off::after{ content:'💨'; position:absolute; top:-20px; left:50%; transform:translateX(-50%) }
+
+.message-card { background:rgba(255,255,255,0.85); backdrop-filter: blur(10px); padding:25px; border-radius:25px; box-shadow:0 15px 35px rgba(0,0,0,0.15); margin-top:10px }
+.message-card h2 { font-family:'Great Vibes', cursive; font-size:36px; color:#ff4757 }
+.message-card h2 span { color:#ff6b81 }
+#typewriter { margin:15px 0; color:#555; font-size:14px; line-height:1.7; min-height:80px }
+.btn { border:none; padding:12px 20px; border-radius:50px; font-weight:600; cursor:pointer; margin:5px; transition:0.3s; width:100% }
+.btn.primary { background:#ff6b81; color:white; box-shadow:0 5px 15px rgba(255,107,129,0.4) }
+.btn.secondary { background:white; color:#ff6b81; border:1px solid #ff6b81 }
+.btn:active { transform:scale(0.95) }
+.hint { font-size:11px; opacity:0.5; margin-top:10px }
+
+.floating-balloons { display:flex; justify-content:center; gap:10px; margin-bottom:10px }
+.balloon { width:40px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-weight:600; animation: float 3s ease-in-out infinite }
+.b1{background:#ff6b81; animation-delay:0s} .b2{background:#70a1ff; animation-delay:0.2s} .b3{background:#7bed9f; animation-delay:0.4s} .b4{background:#ffa502; animation-delay:0.6s} .b5{background:#a55eea; animation-delay:0.8s}
+@keyframes float {0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)}}
+
+#confetti { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:10 }
